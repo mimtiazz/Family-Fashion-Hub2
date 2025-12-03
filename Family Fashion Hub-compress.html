@@ -1,0 +1,1480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Family Fashion Hub | Premium Fashion & Digital Marketing</title>
+    <meta name="description" content="Family Fashion Hub - Your ultimate destination for fashion trends, digital marketing solutions, and style inspiration for the entire family.">
+    <meta name="keywords" content="fashion, digital marketing, family fashion, style tips, fashion hub, clothing trends">
+    <meta name="author" content="Muhammad Imtiaz">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-color: #8B0000; /* Dark Maroon */
+            --secondary-color: #C19A6B; /* Canter/Brake color */
+            --accent-color: #FF6B6B;
+            --light-bg: #FFF8F0;
+            --dark-text: #333;
+            --light-text: #fff;
+            --shadow: 0 5px 15px rgba(139, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+            --highlight-color: #FFD700; /* YELLOW for ad areas */
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: var(--light-bg);
+            color: var(--dark-text);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #660000 100%);
+            color: var(--light-text);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(139, 0, 0, 0.2);
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .logo-display {
+            width: 100px;
+            height: 60px;
+            background: var(--secondary-color);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 14px;
+            border: 2px solid white;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        #headerLogo {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: none;
+        }
+        
+        .logo-placeholder {
+            font-size: 12px;
+            text-align: center;
+            padding: 5px;
+            color: white;
+        }
+        
+        .logo-text {
+            font-size: 24px;
+            font-weight: 700;
+            color: white;
+        }
+        
+        .logo-tagline {
+            font-size: 12px;
+            opacity: 0.9;
+        }
+        
+        /* AD AREA IN HEADER - YELLOW BACKGROUND */
+        .header-ad-area {
+            background: var(--highlight-color);
+            padding: 8px;
+            border-radius: 5px;
+            margin-top: 5px;
+            border: 2px solid #FFC107;
+        }
+        
+        .ad-label {
+            font-size: 10px;
+            color: #333;
+            text-align: center;
+            font-weight: bold;
+            margin-bottom: 3px;
+        }
+        
+        .upload-header-btn {
+            background: var(--secondary-color);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+        }
+        
+        .upload-header-btn:hover {
+            background: #a87c4a;
+            transform: translateY(-2px);
+        }
+        
+        /* Upload Section */
+        .upload-section {
+            margin: 30px auto;
+            max-width: 800px;
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            text-align: center;
+        }
+        
+        .upload-title {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            font-size: 22px;
+        }
+        
+        .upload-box {
+            border: 3px dashed var(--secondary-color);
+            border-radius: 15px;
+            padding: 40px 20px;
+            cursor: pointer;
+            transition: var(--transition);
+            margin-bottom: 30px;
+            background: #f9f5f0;
+        }
+        
+        .upload-box:hover {
+            border-color: var(--primary-color);
+            background: rgba(139, 0, 0, 0.05);
+            border-style: solid;
+            transform: scale(1.02);
+        }
+        
+        .upload-icon {
+            font-size: 50px;
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+        }
+        
+        .upload-text {
+            color: var(--primary-color);
+            font-size: 20px;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        
+        .upload-hint {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+        
+        #logoUpload, #thumbnailUpload {
+            display: none;
+        }
+        
+        .upload-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+        
+        .upload-type-btn {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 15px;
+            min-width: 200px;
+            justify-content: center;
+        }
+        
+        .upload-type-btn:hover {
+            background: #660000;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(139, 0, 0, 0.2);
+        }
+        
+        .upload-type-btn.secondary {
+            background: var(--secondary-color);
+        }
+        
+        .upload-type-btn.secondary:hover {
+            background: #a87c4a;
+        }
+        
+        /* Thumbnail Display */
+        .thumbnail-display-section {
+            margin: 40px auto;
+            max-width: 900px;
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            border: 5px solid var(--primary-color);
+        }
+        
+        .thumbnail-title {
+            background: var(--primary-color);
+            color: white;
+            padding: 15px;
+            text-align: center;
+            font-size: 20px;
+            font-weight: bold;
+        }
+        
+        .thumbnail-container {
+            position: relative;
+            width: 100%;
+            height: 500px;
+            background: linear-gradient(145deg, #ff6b8b 0%, #ff8e53 100%);
+            overflow: hidden;
+        }
+        
+        .year-badge {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-size: 80px;
+            font-weight: bold;
+            color: rgba(255, 255, 255, 0.2);
+            font-family: 'Arial', sans-serif;
+        }
+        
+        .fashion-title-section {
+            position: absolute;
+            top: 50px;
+            left: 40px;
+        }
+        
+        .fashion-main-title {
+            font-size: 60px;
+            font-weight: bold;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            line-height: 1;
+        }
+        
+        .fashion-subtitle {
+            font-size: 28px;
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 500;
+            margin-top: 10px;
+        }
+        
+        .fashion-hub-box {
+            position: absolute;
+            bottom: 150px;
+            left: 40px;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            padding: 25px;
+            border-radius: 15px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            min-width: 300px;
+        }
+        
+        .hub-main-title {
+            font-size: 45px;
+            font-weight: bold;
+            color: white;
+            line-height: 1;
+        }
+        
+        .hub-subtitle {
+            font-size: 18px;
+            color: rgba(255, 255, 255, 0.9);
+            margin-top: 5px;
+        }
+        
+        .thumbnail-right-side {
+            position: absolute;
+            top: 50px;
+            right: 40px;
+            text-align: right;
+            max-width: 300px;
+        }
+        
+        .choir-quit-text {
+            font-size: 32px;
+            font-weight: bold;
+            color: white;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .digital-marketing-text {
+            font-size: 38px;
+            font-weight: bold;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .order-now-button {
+            position: absolute;
+            bottom: 100px;
+            right: 40px;
+            background: linear-gradient(90deg, #ff6b8b, #ff8e53);
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+            padding: 15px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+            transition: var(--transition);
+        }
+        
+        .order-now-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.4);
+        }
+        
+        .women-names-section {
+            position: absolute;
+            bottom: 40px;
+            left: 40px;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            min-width: 250px;
+        }
+        
+        .women-title {
+            font-size: 22px;
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+        
+        .women-name {
+            font-size: 18px;
+            color: #333;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+        
+        .thumbnail-image-area {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            display: none;
+        }
+        
+        #thumbnailImage {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        /* Preview Area */
+        .preview-area {
+            margin-top: 30px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 10px;
+        }
+        
+        .preview-title {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            font-weight: bold;
+            font-size: 18px;
+        }
+        
+        .preview-images {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        .image-preview-box {
+            text-align: center;
+            padding: 15px;
+            background: white;
+            border-radius: 10px;
+            border: 2px solid #eee;
+            min-width: 250px;
+        }
+        
+        .preview-image {
+            max-width: 200px;
+            max-height: 100px;
+            border-radius: 8px;
+            border: 2px solid var(--secondary-color);
+            margin: 10px auto;
+            display: block;
+        }
+        
+        .image-label {
+            color: var(--primary-color);
+            font-weight: 600;
+            margin-bottom: 10px;
+            display: block;
+        }
+        
+        /* AD AREAS THROUGHOUT PAGE - YELLOW BACKGROUNDS */
+        .ad-section {
+            background: var(--highlight-color);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 30px 0;
+            border: 3px solid #FFC107;
+            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.3);
+        }
+        
+        .ad-section-title {
+            color: #333;
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        
+        .ad-code-box {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            border: 2px solid #FFC107;
+            min-height: 100px;
+            font-family: monospace;
+            font-size: 12px;
+            color: #333;
+            overflow-x: auto;
+            margin-bottom: 10px;
+        }
+        
+        .ad-instructions {
+            font-size: 12px;
+            color: #666;
+            text-align: center;
+            margin-top: 10px;
+        }
+        
+        /* Social Media Links */
+        .social-section {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            margin: 30px auto;
+            max-width: 1000px;
+        }
+        
+        .section-title {
+            color: var(--primary-color);
+            margin-bottom: 25px;
+            font-size: 22px;
+            text-align: center;
+        }
+        
+        .social-links-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-link-btn {
+            display: flex;
+            align-items: center;
+            background: #f8f9fa;
+            padding: 15px 20px;
+            border-radius: 10px;
+            text-decoration: none;
+            color: #333;
+            border: 2px solid #eee;
+            transition: var(--transition);
+            min-height: 70px;
+        }
+        
+        .social-link-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            border-color: var(--primary-color);
+            background: white;
+        }
+        
+        .platform-icon-large {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            font-size: 22px;
+            color: white;
+            flex-shrink: 0;
+        }
+        
+        .platform-info {
+            flex-grow: 1;
+        }
+        
+        .platform-name {
+            font-weight: 600;
+            font-size: 16px;
+            margin-bottom: 5px;
+            color: var(--primary-color);
+        }
+        
+        .platform-url {
+            font-size: 12px;
+            color: #666;
+            word-break: break-all;
+        }
+        
+        /* Platform-specific colors */
+        .youtube-bg { background: #FF0000; }
+        .facebook-bg { background: #1877F2; }
+        .website-bg { background: var(--primary-color); }
+        .instagram-bg { background: linear-gradient(45deg, #405DE6, #833AB4, #C13584, #E1306C, #FD1D1D); }
+        .blogger-bg { background: #FF5722; }
+        .twitter-bg { background: #000000; }
+        .reddit-bg { background: #FF4500; }
+        
+        /* Action Buttons */
+        .action-btn-large {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: var(--transition);
+            font-size: 16px;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin: 10px;
+        }
+        
+        .action-btn-large:hover {
+            background: #660000;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(139, 0, 0, 0.2);
+        }
+        
+        /* Footer - UPDATED WITH YOUR TEXT */
+        footer {
+            background: var(--primary-color);
+            color: white;
+            padding: 40px 0 20px;
+            margin-top: 50px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-section h3 {
+            margin-bottom: 20px;
+            font-size: 18px;
+            color: var(--secondary-color);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .footer-links a:hover {
+            color: var(--secondary-color);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 14px;
+        }
+        
+        /* Call to Action Section */
+        .cta-section {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            margin: 40px auto;
+            max-width: 1000px;
+            text-align: center;
+            border: 2px solid var(--secondary-color);
+        }
+        
+        .cta-title {
+            color: var(--primary-color);
+            font-size: 28px;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+        
+        .cta-text {
+            font-size: 18px;
+            color: #555;
+            margin-bottom: 25px;
+            line-height: 1.8;
+        }
+        
+        .cta-highlight {
+            color: var(--primary-color);
+            font-weight: bold;
+            background: rgba(139, 0, 0, 0.1);
+            padding: 10px 20px;
+            border-radius: 10px;
+            display: inline-block;
+            margin: 15px 0;
+        }
+        
+        .cta-button {
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            border-radius: 25px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 20px;
+            text-decoration: none;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(139, 0, 0, 0.3);
+        }
+        
+        /* Toast Notification */
+        .toast {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: var(--primary-color);
+            color: white;
+            padding: 15px 25px;
+            border-radius: 5px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            display: none;
+            z-index: 1000;
+        }
+        
+        /* Ad Management Panel */
+        .ad-management-panel {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            margin: 40px auto;
+            max-width: 1000px;
+        }
+        
+        .ad-platform-tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .platform-tab {
+            padding: 10px 20px;
+            background: #f8f9fa;
+            border: 2px solid #ddd;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+        
+        .platform-tab.active {
+            background: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+            
+            .logo-area {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .social-links-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .upload-box {
+                padding: 30px 15px;
+            }
+            
+            .upload-text {
+                font-size: 18px;
+            }
+            
+            .upload-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .upload-type-btn {
+                width: 100%;
+                max-width: 300px;
+            }
+            
+            .thumbnail-container {
+                height: 400px;
+            }
+            
+            .fashion-main-title {
+                font-size: 40px;
+            }
+            
+            .fashion-subtitle {
+                font-size: 20px;
+            }
+            
+            .hub-main-title {
+                font-size: 35px;
+            }
+            
+            .digital-marketing-text {
+                font-size: 28px;
+            }
+            
+            .order-now-button {
+                font-size: 20px;
+                padding: 12px 30px;
+            }
+            
+            .footer-content {
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header with Logo Display Area & AD SPACE -->
+    <header>
+        <div class="container header-container">
+            <div class="logo-area">
+                <div class="logo-display">
+                    <img id="headerLogo" alt="Your Logo">
+                    <div class="logo-placeholder" id="logoPlaceholder">
+                        Upload Logo
+                    </div>
+                </div>
+                <div>
+                    <div class="logo-text">Family Fashion Hub</div>
+                    <div class="logo-tagline">Fashion & Digital Marketing Solutions</div>
+                    
+                    <!-- AD SPACE 1: HEADER BANNER -->
+                    <div class="header-ad-area">
+                        <div class="ad-label">AD SPACE 1: HEADER BANNER (728x90)</div>
+                        <div class="ad-code-box" id="headerAdCode">
+                            <!-- PASTE YOUR ADSENSE/ADSTERRA BANNER CODE HERE -->
+                            <div style="color: #666; text-align: center; padding: 20px;">
+                                🔽 PASTE AD CODE HERE 🔽
+                            </div>
+                        </div>
+                        <div class="ad-instructions">
+                            Paste AdSense/Adsterra banner code above
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <button class="upload-header-btn" onclick="uploadLogo()">
+                    <i class="fas fa-upload"></i> Upload Logo
+                </button>
+                <input type="file" id="logoUpload" accept="image/*" onchange="handleLogoUpload(event)">
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container">
+        <!-- AD SPACE 2: TOP BANNER -->
+        <div class="ad-section">
+            <div class="ad-section-title">🟨 AD SPACE 2: TOP BANNER (728x90 or 970x250)</div>
+            <div class="ad-code-box" id="topBannerAd">
+                <!-- PASTE YOUR LARGE BANNER AD CODE HERE -->
+                <div style="color: #666; text-align: center; padding: 30px;">
+                    🔽 PASTE LARGE BANNER AD CODE HERE 🔽
+                </div>
+            </div>
+            <div class="ad-instructions">
+                Best for: AdSense Leaderboard or Adsterra Large Banner
+            </div>
+        </div>
+
+        <!-- UPLOAD SECTION -->
+        <div class="upload-section">
+            <h2 class="upload-title">Upload Your Logo & Thumbnail</h2>
+            
+            <div class="upload-box" onclick="openFileSelector()">
+                <div class="upload-icon">
+                    <i class="fas fa-cloud-upload-alt"></i>
+                </div>
+                <div class="upload-text">CLICK HERE TO UPLOAD IMAGES</div>
+                <div class="upload-hint">Click anywhere in this box to select images</div>
+                <div class="upload-hint">Upload both Logo (for header) and Thumbnail (for videos/posts)</div>
+                <div class="upload-hint">Supported: JPG, PNG, GIF (Max: 5MB each)</div>
+            </div>
+            
+            <div class="upload-buttons">
+                <button class="upload-type-btn" onclick="uploadLogo()">
+                    <i class="fas fa-camera"></i> Upload Logo Only
+                </button>
+                
+                <button class="upload-type-btn secondary" onclick="uploadThumbnail()">
+                    <i class="fas fa-image"></i> Upload Thumbnail Only
+                </button>
+            </div>
+            
+            <input type="file" id="thumbnailUpload" accept="image/*" onchange="handleThumbnailUpload(event)">
+            
+            <div class="preview-area" id="previewArea">
+                <div class="preview-title">Uploaded Images:</div>
+                <div class="preview-images">
+                    <div class="image-preview-box">
+                        <span class="image-label">Your Logo (For Header)</span>
+                        <img id="logoPreview" class="preview-image" alt="Logo Preview">
+                        <div style="color: #666; font-size: 12px; margin-top: 5px;">
+                            <span id="logoSize">Not uploaded</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- AD SPACE 3: SQUARE/RECTANGLE -->
+        <div class="ad-section">
+            <div class="ad-section-title">🟨 AD SPACE 3: SQUARE/RECTANGLE (300x250 or 336x280)</div>
+            <div class="ad-code-box" id="squareAd">
+                <!-- PASTE YOUR SQUARE/RECTANGLE AD CODE HERE -->
+                <div style="color: #666; text-align: center; padding: 40px;">
+                    🔽 PASTE SQUARE AD CODE HERE 🔽<br>
+                    (300x250 or 336x280)
+                </div>
+            </div>
+            <div class="ad-instructions">
+                Perfect for AdSense Medium Rectangle or Adsterra Square Ads
+            </div>
+        </div>
+
+        <!-- THUMBNAIL DISPLAY AREA -->
+        <div class="thumbnail-display-section">
+            <div class="thumbnail-title">Your Thumbnail Design Preview</div>
+            
+            <div class="thumbnail-container">
+                <div class="thumbnail-image-area" id="thumbnailImageArea">
+                    <img id="thumbnailImage" alt="Thumbnail Background">
+                </div>
+                
+                <div class="year-badge">2025</div>
+                
+                <div class="fashion-title-section">
+                    <div class="fashion-main-title">FASHION</div>
+                    <div class="fashion-subtitle">WOMEN'S FAMILY</div>
+                </div>
+                
+                <div class="fashion-hub-box">
+                    <div class="hub-main-title">FASHION HUB</div>
+                    <div class="hub-subtitle">Choir Quit Digital Marketing</div>
+                </div>
+                
+                <div class="thumbnail-right-side">
+                    <div class="choir-quit-text">Choir Quit</div>
+                    <div class="digital-marketing-text">DIGITAL MARKETING</div>
+                </div>
+                
+                <a href="https://familyfashionhub.com/order" class="order-now-button" target="_blank">
+                    ORDER NOW!
+                </a>
+                
+                <div class="women-names-section">
+                    <div class="women-title">WOMEN BABABAEY M.</div>
+                    <div class="women-name">BABABAEY M.</div>
+                    <div class="women-name">Fashion Designer</div>
+                </div>
+            </div>
+            
+            <div style="text-align: center; padding: 15px; background: #f8f9fa; color: #666;">
+                <p>This is your thumbnail design. Uploaded image will appear as background.</p>
+            </div>
+        </div>
+
+        <!-- AD SPACE 4: IN-CONTENT BANNER -->
+        <div class="ad-section">
+            <div class="ad-section-title">🟨 AD SPACE 4: IN-CONTENT BANNER (728x90)</div>
+            <div class="ad-code-box" id="inContentAd">
+                <!-- PASTE YOUR IN-CONTENT BANNER AD CODE HERE -->
+                <div style="color: #666; text-align: center; padding: 20px;">
+                    🔽 PASTE IN-CONTENT BANNER CODE HERE 🔽
+                </div>
+            </div>
+            <div class="ad-instructions">
+                Place between content sections for best results
+            </div>
+        </div>
+
+        <!-- SOCIAL MEDIA LINKS -->
+        <div class="social-section">
+            <h2 class="section-title">📱 YOUR SOCIAL MEDIA LINKS (Click to Visit)</h2>
+            
+            <div class="social-links-container" id="socialLinksContainer">
+                <!-- Social links loaded by JavaScript -->
+            </div>
+        </div>
+
+        <!-- AD SPACE 5: SIDEBAR STYLE -->
+        <div class="ad-section">
+            <div class="ad-section-title">🟨 AD SPACE 5: SIDEBAR/RECTANGLE (300x600)</div>
+            <div class="ad-code-box" id="sidebarAd">
+                <!-- PASTE YOUR SIDEBAR/LARGE RECTANGLE AD CODE HERE -->
+                <div style="color: #666; text-align: center; padding: 60px 20px;">
+                    🔽 PASTE SIDEBAR AD CODE HERE 🔽<br>
+                    (300x600 Skyscraper)
+                </div>
+            </div>
+            <div class="ad-instructions">
+                Perfect for AdSense Skyscraper or Adsterra Vertical Ads
+            </div>
+        </div>
+
+        <!-- CALL TO ACTION SECTION - WITH YOUR WORDS -->
+        <div class="cta-section">
+            <h2 class="cta-title">Join Our Fashion Community Today!</h2>
+            
+            <p class="cta-text">
+                We work honestly to bring you trending fashion products every day. 
+                Our collection features popular Amazon products and exclusive items 
+                available only through our platform.
+            </p>
+            
+            <div class="cta-highlight">
+                Click on our links to explore, purchase, and join our growing community!
+            </div>
+            
+            <p class="cta-text">
+                Follow us, subscribe to our channels, like our content, and share your 
+                valuable comments. Your support encourages us to bring you the best 
+                fashion products and digital marketing solutions every day.
+            </p>
+            
+            <a href="#socialLinksContainer" class="cta-button">
+                <i class="fas fa-heart"></i> Connect With Us Now
+            </a>
+        </div>
+
+        <!-- AD SPACE 6: NATIVE AD -->
+        <div class="ad-section">
+            <div class="ad-section-title">🟨 AD SPACE 6: NATIVE AD (Matches Your Design)</div>
+            <div class="ad-code-box" id="nativeAd">
+                <!-- PASTE YOUR NATIVE AD CODE HERE -->
+                <div style="color: #666; text-align: center; padding: 30px;">
+                    🔽 PASTE NATIVE AD CODE HERE 🔽<br>
+                    (Matches your website design)
+                </div>
+            </div>
+            <div class="ad-instructions">
+                AdSense Native Ads or Adsterra Native Ads work best here
+            </div>
+        </div>
+
+        <!-- AD MANAGEMENT PANEL -->
+        <div class="ad-management-panel">
+            <h2 class="section-title">💰 AD MANAGEMENT PANEL</h2>
+            
+            <div class="ad-platform-tabs">
+                <div class="platform-tab active" onclick="showAdPlatform('adsense')">AdSense</div>
+                <div class="platform-tab" onclick="showAdPlatform('adsterra')">Adsterra</div>
+                <div class="platform-tab" onclick="showAdPlatform('admob')">AdMob</div>
+            </div>
+            
+            <div id="adsensePanel" style="display: block;">
+                <h3 style="color: var(--primary-color); margin-bottom: 15px;">Google AdSense Codes</h3>
+                <p style="color: #666; margin-bottom: 20px;">
+                    Get codes from: <a href="https://adsense.google.com" target="_blank">adsense.google.com</a><br>
+                    Copy-paste into the YELLOW boxes above.
+                </p>
+            </div>
+            
+            <div id="adsterraPanel" style="display: none;">
+                <h3 style="color: var(--primary-color); margin-bottom: 15px;">Adsterra Codes</h3>
+                <p style="color: #666; margin-bottom: 20px;">
+                    Get codes from: <a href="https://adsterra.com" target="_blank">adsterra.com</a><br>
+                    Copy-paste into the YELLOW boxes above.
+                </p>
+            </div>
+            
+            <div id="admobPanel" style="display: none;">
+                <h3 style="color: var(--primary-color); margin-bottom: 15px;">AdMob Codes (For Mobile Apps)</h3>
+                <p style="color: #666; margin-bottom: 20px;">
+                    Get codes from: <a href="https://admob.google.com" target="_blank">admob.google.com</a><br>
+                    Use for mobile app versions.
+                </p>
+            </div>
+        </div>
+
+        <!-- AD SPACE 7: FOOTER BANNER -->
+        <div class="ad-section">
+            <div class="ad-section-title">🟨 AD SPACE 7: FOOTER BANNER (728x90 or 970x90)</div>
+            <div class="ad-code-box" id="footerAd">
+                <!-- PASTE YOUR FOOTER BANNER AD CODE HERE -->
+                <div style="color: #666; text-align: center; padding: 20px;">
+                    🔽 PASTE FOOTER BANNER CODE HERE 🔽
+                </div>
+            </div>
+            <div class="ad-instructions">
+                Last ad visitors see before leaving - high value!
+            </div>
+        </div>
+
+        <!-- AD SPACE 8: POPUNDER/INTERSTITIAL (Hidden) -->
+        <div style="display: none;" id="popunderAd">
+            <!-- PASTE POPUNDER/INTERSTITIAL CODE HERE -->
+            <!-- This runs in background -->
+        </div>
+
+        <!-- ACTION BUTTONS -->
+        <div style="text-align: center; margin: 40px 0;">
+            <button class="action-btn-large" onclick="saveAll()">
+                <i class="fas fa-save"></i> SAVE EVERYTHING
+            </button>
+            <button class="action-btn-large" onclick="clearAll()" style="background: #666;">
+                <i class="fas fa-trash"></i> CLEAR ALL
+            </button>
+            <button class="action-btn-large" onclick="saveAdCodes()" style="background: var(--highlight-color); color: #333;">
+                <i class="fas fa-ad"></i> SAVE AD CODES
+            </button>
+        </div>
+        
+        <div class="toast" id="toast"></div>
+    </div>
+
+    <!-- FOOTER - UPDATED WITH YOUR TEXT -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Family Fashion Hub</h3>
+                    <p>Your ultimate destination for fashion trends and digital marketing solutions. 
+                       We bring you trending Amazon products and exclusive fashion items daily.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links" id="footerLinks">
+                        <!-- Links loaded by JavaScript -->
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Support Our Journey</h3>
+                    <p>Follow, subscribe, like, and comment on our channels. Your support helps us 
+                       bring you the best fashion products and digital solutions every day.</p>
+                    <p style="margin-top: 10px; font-style: italic;">
+                        Your encouragement means everything to us!
+                    </p>
+                </div>
+            </div>
+            
+            <!-- AD SPACE 8: FOOTER AD AREA -->
+            <div class="header-ad-area" style="margin: 20px 0;">
+                <div class="ad-label">AD SPACE 8: FINAL BANNER</div>
+                <div class="ad-code-box">
+                    <!-- PASTE FINAL AD CODE HERE -->
+                    <div style="color: #666; text-align: center; padding: 15px;">
+                        Final ad spot - high visibility!
+                    </div>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                &copy; <span id="currentYear"></span> Family Fashion Hub. All rights reserved. | 
+                Join our honest fashion community today!
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Your social links data
+        const socialLinks = [
+            { 
+                name: "YouTube Channel", 
+                icon: "fab fa-youtube",
+                colorClass: "youtube-bg",
+                url: "https://www.youtube.com/@MuhammadImtiazomyia-s9q"
+            },
+            { 
+                name: "Facebook Page", 
+                icon: "fab fa-facebook-f",
+                colorClass: "facebook-bg",
+                url: "https://www.facebook.com/M.IMTIAZ555"
+            },
+            { 
+                name: "Website/Blog", 
+                icon: "fas fa-globe",
+                colorClass: "website-bg",
+                url: "https://muhammadimtiazomyias9q.wordpress.com/"
+            },
+            { 
+                name: "Instagram", 
+                icon: "fab fa-instagram",
+                colorClass: "instagram-bg",
+                url: "https://www.instagram.com/family_f_hub/"
+            },
+            { 
+                name: "Blogger", 
+                icon: "fab fa-blogger",
+                colorClass: "blogger-bg",
+                url: "https://draft.blogger.com/blog/post/edit/preview/2506283146276471649/8579275761633634355"
+            },
+            { 
+                name: "Twitter/X", 
+                icon: "fab fa-twitter",
+                colorClass: "twitter-bg",
+                url: "https://x.com/MuhammadIm966"
+            },
+            { 
+                name: "Reddit Profile", 
+                icon: "fab fa-reddit",
+                colorClass: "reddit-bg",
+                url: "https://www.reddit.com/user/ElectricalBreath5435/"
+            }
+        ];
+
+        // Initialize the page
+        document.addEventListener('DOMContentLoaded', function() {
+            // Set current year
+            document.getElementById('currentYear').textContent = new Date().getFullYear();
+            
+            // Load saved logo
+            const savedLogo = localStorage.getItem('familyFashionHubLogo');
+            if (savedLogo) {
+                updateLogoDisplay(savedLogo);
+                document.getElementById('logoPreview').src = savedLogo;
+                document.getElementById('logoSize').textContent = 'Uploaded';
+            }
+            
+            // Load saved thumbnail
+            const savedThumbnail = localStorage.getItem('familyFashionHubThumbnail');
+            if (savedThumbnail) {
+                updateThumbnailDisplay(savedThumbnail);
+            }
+            
+            // Load saved ad codes
+            loadAdCodes();
+            
+            // Show preview area if logo exists
+            if (savedLogo) {
+                document.getElementById('previewArea').style.display = 'block';
+            }
+            
+            // Load and display social links
+            renderSocialLinks();
+            
+            // Load footer links
+            updateFooterLinks();
+        });
+
+        // Open file selector
+        function openFileSelector() {
+            const choice = confirm("What do you want to upload?\n\nClick OK for Logo (appears in header)\nClick Cancel for Thumbnail (background image)");
+            
+            if (choice === true) {
+                uploadLogo();
+            } else {
+                uploadThumbnail();
+            }
+        }
+
+        // Trigger LOGO upload
+        function uploadLogo() {
+            document.getElementById('logoUpload').click();
+        }
+
+        // Trigger THUMBNAIL upload
+        function uploadThumbnail() {
+            document.getElementById('thumbnailUpload').click();
+        }
+
+        // Handle LOGO upload
+        function handleLogoUpload(event) {
+            const file = event.target.files[0];
+            if (file) {
+                handleImageUpload(file, 'logo');
+            }
+        }
+
+        // Handle THUMBNAIL upload
+        function handleThumbnailUpload(event) {
+            const file = event.target.files[0];
+            if (file) {
+                handleImageUpload(file, 'thumbnail');
+            }
+        }
+
+        // Common function to handle image upload
+        function handleImageUpload(file, type) {
+            // Check file size (5MB limit)
+            if (file.size > 5 * 1024 * 1024) {
+                showToast('File too large! Please select image under 5MB.');
+                return;
+            }
+            
+            // Check file type
+            if (!file.type.match('image.*')) {
+                showToast('Please select an image file (JPG, PNG, GIF).');
+                return;
+            }
+            
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                if (type === 'logo') {
+                    // Update logo in header
+                    updateLogoDisplay(e.target.result);
+                    
+                    // Update preview
+                    document.getElementById('logoPreview').src = e.target.result;
+                    document.getElementById('logoSize').textContent = formatFileSize(file.size);
+                    
+                    // Save to localStorage
+                    localStorage.setItem('familyFashionHubLogo', e.target.result);
+                    
+                    showToast('✅ Logo uploaded successfully! Appears in header.');
+                    
+                    // Show preview area
+                    document.getElementById('previewArea').style.display = 'block';
+                    
+                } else if (type === 'thumbnail') {
+                    // Update thumbnail display
+                    updateThumbnailDisplay(e.target.result);
+                    
+                    // Save to localStorage
+                    localStorage.setItem('familyFashionHubThumbnail', e.target.result);
+                    
+                    showToast('✅ Thumbnail uploaded successfully! Appears as background.');
+                }
+            };
+            
+            reader.readAsDataURL(file);
+        }
+
+        // Format file size
+        function formatFileSize(bytes) {
+            if (bytes < 1024) return bytes + ' bytes';
+            else if (bytes < 1048576) return (bytes / 1024).toFixed(1) + ' KB';
+            else return (bytes / 1048576).toFixed(1) + ' MB';
+        }
+
+        // Update logo display in header
+        function updateLogoDisplay(imageData) {
+            const headerLogo = document.getElementById('headerLogo');
+            const logoPlaceholder = document.getElementById('logoPlaceholder');
+            
+            headerLogo.src = imageData;
+            headerLogo.style.display = 'block';
+            logoPlaceholder.style.display = 'none';
+        }
+
+        // Update thumbnail display
+        function updateThumbnailDisplay(imageData) {
+            const thumbnailImage = document.getElementById('thumbnailImage');
+            const thumbnailImageArea = document.getElementById('thumbnailImageArea');
+            
+            thumbnailImage.src = imageData;
+            thumbnailImageArea.style.display = 'block';
+        }
+
+        // Render social links
+        function renderSocialLinks() {
+            const container = document.getElementById('socialLinksContainer');
+            container.innerHTML = '';
+            
+            socialLinks.forEach(platform => {
+                const linkElement = document.createElement('a');
+                linkElement.href = platform.url;
+                linkElement.target = '_blank';
+                linkElement.className = 'social-link-btn';
+                linkElement.innerHTML = `
+                    <div class="platform-icon-large ${platform.colorClass}">
+                        <i class="${platform.icon}"></i>
+                    </div>
+                    <div class="platform-info">
+                        <div class="platform-name">${platform.name}</div>
+                        <div class="platform-url">${platform.url.replace('https://', '')}</div>
+                    </div>
+                    <div style="color: #999; font-size: 20px;">
+                        <i class="fas fa-external-link-alt"></i>
+                    </div>
+                `;
+                container.appendChild(linkElement);
+            });
+        }
+
+        // Update footer links
+        function updateFooterLinks() {
+            const footerLinks = document.getElementById('footerLinks');
+            footerLinks.innerHTML = '';
+            
+            socialLinks.forEach(platform => {
+                const li = document.createElement('li');
+                li.innerHTML = `<a href="${platform.url}" target="_blank">${platform.name}</a>`;
+                footerLinks.appendChild(li);
+            });
+        }
+
+        // Show ad platform panel
+        function showAdPlatform(platform) {
+            // Update active tab
+            document.querySelectorAll('.platform-tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            event.target.classList.add('active');
+            
+            // Show correct panel
+            document.getElementById('adsensePanel').style.display = 'none';
+            document.getElementById('adsterraPanel').style.display = 'none';
+            document.getElementById('admobPanel').style.display = 'none';
+            document.getElementById(platform + 'Panel').style.display = 'block';
+        }
+
+        // Save ad codes
+        function saveAdCodes() {
+            // Get all ad codes from yellow boxes
+            const adCodes = {
+                header: document.getElementById('headerAdCode').innerHTML,
+                topBanner: document.getElementById('topBannerAd').innerHTML,
+                square: document.getElementById('squareAd').innerHTML,
+                inContent: document.getElementById('inContentAd').innerHTML,
+                sidebar: document.getElementById('sidebarAd').innerHTML,
+                native: document.getElementById('nativeAd').innerHTML,
+                footer: document.getElementById('footerAd').innerHTML
+            };
+            
+            // Save to localStorage
+            localStorage.setItem('adCodes', JSON.stringify(adCodes));
+            
+            showToast('✅ All ad codes saved! They will appear on your live site.');
+            
+            // Show preview
+            setTimeout(() => {
+                alert("AD CODES SAVED!\n\nYour 8 ad spaces are now ready:\n\n1. Header Banner (728x90)\n2. Top Banner (728x90/970x250)\n3. Square Ad (300x250)\n4. In-Content Banner (728x90)\n5. Sidebar (300x600)\n6. Native Ad\n7. Footer Banner\n8. Popunder/Hidden\n\nYour website is now monetized!");
+            }, 500);
+        }
+
+        // Load saved ad codes
+        function loadAdCodes() {
+            const savedCodes = localStorage.getItem('adCodes');
+            if (savedCodes) {
+                const adCodes = JSON.parse(savedCodes);
+                
+                // Load each ad code
+                if (adCodes.header) document.getElementById('headerAdCode').innerHTML = adCodes.header;
+                if (adCodes.topBanner) document.getElementById('topBannerAd').innerHTML = adCodes.topBanner;
+                if (adCodes.square) document.getElementById('squareAd').innerHTML = adCodes.square;
+                if (adCodes.inContent) document.getElementById('inContentAd').innerHTML = adCodes.inContent;
+                if (adCodes.sidebar) document.getElementById('sidebarAd').innerHTML = adCodes.sidebar;
+                if (adCodes.native) document.getElementById('nativeAd').innerHTML = adCodes.native;
+                if (adCodes.footer) document.getElementById('footerAd').innerHTML = adCodes.footer;
+            }
+        }
+
+        // Save all changes
+        function saveAll() {
+            saveAdCodes();
+            showToast('✅ Everything saved! Logo, thumbnail, and ad codes are saved.');
+            
+            // Show success message
+            setTimeout(() => {
+                alert("SUCCESS!\n\nYour website is now fully ready with:\n1. Logo in header\n2. Thumbnail design\n3. Social media links\n4. 8 AD SPACES for earning\n5. Your message to visitors\n\nEverything is saved automatically!");
+            }, 500);
+        }
+
+        // Clear all data
+        function clearAll() {
+            if (confirm('Are you sure? This will remove your logo, thumbnail, and ALL ad codes.')) {
+                localStorage.clear();
+                location.reload();
+            }
+        }
+
+        // Show toast notification
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            toast.textContent = message;
+            toast.style.display = 'block';
+            
+            setTimeout(() => {
+                toast.style.display = 'none';
+            }, 3000);
+        }
+    </script>
+</body>
+</html>
